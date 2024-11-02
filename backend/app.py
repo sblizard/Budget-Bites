@@ -9,7 +9,8 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from src.database.crud import IngredientRepo
 from src.database.modle import Ingredient, Response
 from src.globals.environment import Environment
-from src.database.router import router
+from src.database.router import router as database_router
+from src.spoonacular.router import router as spoonacular_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -27,7 +28,9 @@ async def lifespan(app: FastAPI):
 
 app: FastAPI = FastAPI(lifespan=lifespan)
 
-app.include_router(router)
+app.include_router(database_router)
+app.include_router(spoonacular_router)
+
 
 @app.get('/')
 async def root():
