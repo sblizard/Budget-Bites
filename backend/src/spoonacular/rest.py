@@ -5,10 +5,10 @@ import os
 import httpx
 
 # internal
-from src.spoonacular.model import GetIngredientsInput, Recipes
+from src.spoonacular.model import GetRecipesInput, Recipes
 
 
-async def get_recipes(input: GetIngredientsInput) -> Recipes:
+async def get_recipes(input: GetRecipesInput) -> Recipes:
     url = "https://api.spoonacular.com/recipes/findByIngredients?"
 
     if len(input.ingredients) > 0:

@@ -2,15 +2,17 @@
 from contextlib import asynccontextmanager
 
 # external
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from motor.motor_asyncio import AsyncIOMotorClient
 
 # internal
-from src.database.crud import IngredientRepo
+from src.database.crud import IngredientRepo, RecipeRepo
 from src.database.modle import Ingredient, Response
 from src.globals.environment import Environment
 from src.database.router import router as database_router
 from src.spoonacular.router import router as spoonacular_router
+from src.spoonacular.model import GetRecipesInput, Recipes
+from src.spoonacular.rest import get_recipes
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -35,3 +37,18 @@ app.include_router(spoonacular_router)
 @app.get('/')
 async def root():
     return {'message': 'Hello World!'}
+
+@app.get("/make-recipes")
+async def makeRecipes(request: Request):
+    ingridents: list[str] = await IngredientRepo.retrieve_ingredients(request=request)
+
+    print(f'***************************ingredients:{ingridents}***************************')
+
+
+    getIngredientsInput: GetRecipesInput  = await GetRecipesInput(ingredients=ingridents, number=5, ranking=2, ignorePantry=True)
+
+    recipes: Recipes = await get_recipes(getIngredientsInput)
+
+    for recipe in recipes.recipes:
+        RecipeRepo.insert_recipe(recipe=recipe, request=request)
+        print(recipe)

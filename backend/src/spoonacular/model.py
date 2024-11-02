@@ -47,7 +47,7 @@ class Recipe(BaseModel):
 class Recipes(BaseModel):
     recipes: list[Recipe]
 
-class GetIngredientsInput(BaseModel):
+class GetRecipesInput(BaseModel):
     ingredients: list[str]
     number: int
     ranking: int
