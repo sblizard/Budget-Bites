@@ -1,0 +1,5 @@
+{
+  "directory": "./src/subframe",
+  "importAlias": "@/subframe/*",
+  "projectId": "3ea4d9617b64"
+}
