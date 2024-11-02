@@ -9,11 +9,12 @@ readme = "README.md"
 python = "^3.12"
 fastapi = {extras = ["standard"], version = "^0.115.4"}
 uvicorn = "^0.32.0"
-pymongo = {extras = ["srv"], version = "^4.10.1"}
+pymongo = "^4.9.0"
 selenium = "^4.26.1"
 bs4 = "^0.0.2"
 pydantic-settings = "^2.6.1"
 requests = "^2.32.3"
+motor = "^3.6.0"
 
 
 [build-system]
