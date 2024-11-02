@@ -9,7 +9,6 @@ class Ingredient(BaseModel):
     base_price: float
     sale_price: float
     discount_amount: float
-    category: str
 
 class Response(BaseModel):
     status: str

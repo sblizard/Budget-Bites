@@ -4,6 +4,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
+from src.database.modle import Ingredient
+import requests
 import time
 import re
 
@@ -48,7 +50,21 @@ def scrape_page(page_num: int):
 
             base_price = float(re.search(r'\d+\.\d+', base_price).group())
             loyalty_price = float(re.search(r'\d+\.\d+', loyalty_price).group())
+            discount_amount = base_price - loyalty_price
             
+            ingredient = Ingredient(
+                ingredient_name=name, 
+                ingredient_id="0", 
+                base_price=base_price, 
+                sale_price=loyalty_price, 
+                discount_amount=discount_amount
+            )
+
+            response = requests.post(
+                'http://localhost:8000/ingredient/create',
+                json=ingredient.model_dump_json()
+            )
+
             print(f"Name: {name}, Base Price: {base_price}, Loyalty Price: {loyalty_price}")
     except Exception as e:
         print(f"Error: {e}")
