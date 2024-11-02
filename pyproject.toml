@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "mealsforless"
+version = "0.1.0"
+description = ""
+authors = ["Sean Blizard <emailseanblizard@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.4"
+uvicorn = "^0.32.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
