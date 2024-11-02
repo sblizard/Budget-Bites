@@ -5,33 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77646ea4-d98e-468b-bc57-8fb8cb9fafbb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/subframe-nextjs-starter-kit/src/app/[recipeName]/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/subframe-nextjs-starter-kit/src/app/defaultPageLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/.eslintrc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/app/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/app/fonts/GeistMonoVF.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/app/fonts/GeistVF.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/app/globals.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/app/layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/app/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/next.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/postcss.config.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/public/file.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/public/globe.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/public/next.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/public/vercel.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/public/window.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/tailwind.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/meals-for-less/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/subframe-nextjs-starter-kit/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/subframe-nextjs-starter-kit/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/subframe-nextjs-starter-kit/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/subframe-nextjs-starter-kit/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/subframe-nextjs-starter-kit/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/subframe-nextjs-starter-kit/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/subframe-nextjs-starter-kit/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/subframe-nextjs-starter-kit/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/subframe-nextjs-starter-kit/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/subframe-nextjs-starter-kit/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +13,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend/subframe-nextjs-starter-kit" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -62,33 +37,33 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2oIr2eaW0DKFHRcizP0tKZ0nXFo" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;HTTP Request.All in generated-requests.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.generated-requests | #2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.app.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/seanblizard/Documents/GitHub/MealsForLess&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/seanblizard/Documents/GitHub/MealsForLess/frontend/subframe-nextjs-starter-kit/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "HTTP Request.All in generated-requests.executor": "Run",
+    "HTTP Request.generated-requests | #2.executor": "Run",
+    "Python.app.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "frontend",
+    "ignore_missing_gitignore": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/seanblizard/Documents/GitHub/MealsForLess",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "ts.external.directory.path": "/Users/seanblizard/Documents/GitHub/MealsForLess/frontend/subframe-nextjs-starter-kit/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/subframe-nextjs-starter-kit/.next" />
@@ -129,12 +104,17 @@
       <workItem from="1730567727722" duration="2012000" />
       <workItem from="1730569743800" duration="574000" />
       <workItem from="1730579681358" duration="176000" />
-      <workItem from="1730579942325" duration="3579000" />
+      <workItem from="1730579942325" duration="3955000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/frontend/subframe-nextjs-starter-kit" />
+    </ignored-roots>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MealsForLess$app.coverage" NAME="app Coverage Results" MODIFIED="1730569703557" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
