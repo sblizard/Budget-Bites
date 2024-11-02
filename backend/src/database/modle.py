@@ -6,8 +6,10 @@ T = TypeVar('T')
 class Ingredient(BaseModel):
     ingredient_name: str
     ingredient_id: str
-    price: float
-    discount: float
+    base_price: float
+    sale_price: float
+    discount_amount: float
+    category: str
 
 class Response(BaseModel):
     status: str

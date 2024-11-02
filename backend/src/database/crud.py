@@ -9,9 +9,9 @@ class IngredientRepo():
     @staticmethod
     async def retrieve_ingredients(request: Request):
         _ingredient = []
-        motor_db = request.app.state.motor  # motor_db is now a MotorDatabase
+        motor_db = request.app.state.motor 
         collection = motor_db.get_collection("Ingredients")
-        async for ingredient in collection.find():  # Use find() to fetch all documents
+        async for ingredient in collection.find():
             _ingredient.append(ingredient)
         return _ingredient
 
