@@ -23,8 +23,9 @@ class IngredientRepo():
         _ingredient = {
             "ingredient_name": ingredient.ingredient_name,
             "ingredient_id": id,
-            "price": ingredient.price,
-            "discount": ingredient.discount
+            "sale_price": ingredient.sale_price,
+            "base_price": ingredient.base_price,
+            "discount": ingredient.discount_amount
         }
         await motor.get_collection('Ingredients').insert_one(_ingredient)
 
