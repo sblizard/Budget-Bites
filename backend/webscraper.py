@@ -62,8 +62,9 @@ def scrape_page(page_num: int):
 
             response = requests.post(
                 'http://localhost:8000/ingredient/create',
-                json=ingredient.model_dump_json()
+                json=ingredient.model_dump()
             )
+            print(response.content)
 
             print(f"Name: {name}, Base Price: {base_price}, Loyalty Price: {loyalty_price}")
     except Exception as e:
