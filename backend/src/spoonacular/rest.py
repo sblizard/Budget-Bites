@@ -14,7 +14,7 @@ async def get_recipes(input: GetRecipesInput) -> Recipes:
     recipes: List[Recipe] = []  # Define recipes as a list of Recipe models
 
     # Adjust the loop to limit API requests as needed
-    for i in range(10):
+    for i in range(20):
         url: str = "https://api.spoonacular.com/recipes/findByIngredients?"
 
         ingredientsStr = ""
