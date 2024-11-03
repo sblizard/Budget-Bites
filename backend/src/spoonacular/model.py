@@ -44,7 +44,7 @@ class Recipe(BaseModel):
     usedIngredientCount: Optional[int] = None
     usedIngredients: Optional[list[UsedIngredients]] = None
     summary: Optional[str] = None
-    # TODO: add steps 
+    analyzedInstructions: Optional[list[dict[str, Any]]] = None
 
 
 class Recipes(BaseModel):

@@ -4,6 +4,12 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from fastapi import Request
 from src.spoonacular.model import Recipe
 from pydantic import BaseModel
+from bson import ObjectId
+
+def serialize_objectid(obj):
+    if isinstance(obj, ObjectId):
+        return str(obj)
+    return obj
 
 
 class IngredientRepo():
@@ -62,8 +68,9 @@ class RecipeRepo():
     async def retrieve_recipes(request: Request):
         _recipes = []
         motor_db = request.app.state.recipe_motor 
-        collection = motor_db.get_collection("Recipes")
+        collection = motor_db.get_collection("Recipes")  
         async for recipe in collection.find():
+            recipe['_id'] = str(recipe['_id'])  # Convert ObjectId to string
             _recipes.append(recipe)
         return _recipes
 
@@ -84,7 +91,9 @@ class RecipeRepo():
             "title": recipe.title,
             "unusedIngredients": [ingredient if isinstance(ingredient, dict) else ingredient.dict() for ingredient in recipe.unusedIngredients or []],
             "usedIngredients": [ingredient.dict() if isinstance(ingredient, BaseModel) else ingredient for ingredient in recipe.usedIngredients or []],
-            "usedIngredientCount": recipe.usedIngredientCount
+            "usedIngredientCount": recipe.usedIngredientCount,
+            "summary": recipe.summary,
+            "analyzedInstructions": recipe.analyzedInstructions
         }
 
         await motor.get_collection('Recipes').insert_one(_recipe)
@@ -110,7 +119,8 @@ class RecipeRepo():
             "unusedIngredients": recipe.unusedIngredients,
             "usedIngredients": recipe.usedIngredients,
             "usedIngredientCount": recipe.usedIngredientCount,
-            "summary": recipe.summary
+            "summary": recipe.summary,
+            "analyzedInstructions": recipe.analyzedInstructions
         }
 
         update_data = {k: v for k, v in _recipe.items() if v is not None}
