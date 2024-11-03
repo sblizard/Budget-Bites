@@ -4,14 +4,14 @@ from typing import TypeVar, Optional
 T = TypeVar('T')
 
 class Ingredient(BaseModel):
-    ingredient_name: str
-    ingredient_id: str
-    base_price: float
-    sale_price: float
-    discount_amount: float
+    ingredient_name: Optional[str] = None
+    ingredient_id: Optional[str] = None
+    base_price: Optional[float] = None
+    sale_price: Optional[float] = None
+    discount_amount: Optional[float] = None
 
 class Response(BaseModel):
-    status: str
-    message: str
-    code: str
+    status: Optional[str] = None
+    message: Optional[str] = None
+    code: Optional[str] = None
     result: Optional[T] = None

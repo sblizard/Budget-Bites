@@ -21,7 +21,8 @@ async def lifespan(app: FastAPI):
 
     # Initialize the MongoDB client and select the database
     motor_client = AsyncIOMotorClient("mongodb+srv://seanblizard:phDD0Hb0O7s12q3f@mealsforless.yky0i.mongodb.net/?retryWrites=true&w=majority&appName=MealsForLess&ssl_cert_reqs=CERT_NONE")
-    app.state.motor = motor_client["ingredients"]  # Use the specific database name here
+    app.state.motor = motor_client["ingredients"] 
+    app.state.recipe_motor = motor_client["recipes"]
 
     yield
 
@@ -45,10 +46,12 @@ async def makeRecipes(request: Request):
     print(f'***************************ingredients:{ingridents}***************************')
 
 
-    getIngredientsInput: GetRecipesInput  = await GetRecipesInput(ingredients=ingridents, number=5, ranking=2, ignorePantry=True)
+    getRecipesInput: GetRecipesInput = GetRecipesInput(ingredients=ingridents, number=5, ranking=2, ignorePantry=True)
 
-    recipes: Recipes = await get_recipes(getIngredientsInput)
+    recipes: Recipes = await get_recipes(getRecipesInput)
 
     for recipe in recipes.recipes:
-        RecipeRepo.insert_recipe(recipe=recipe, request=request)
-        print(recipe)
+        await RecipeRepo.insert_recipe(recipe=recipe, request=request)
+        print(f'**********************RECIPE HERE*******: {recipe}')
+
+    return Response(message="Recipes made successfully", data=recipes)
