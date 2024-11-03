@@ -26,7 +26,7 @@ async def get_recipes(input: GetRecipesInput) -> Recipes:
         if ingredientsStr:
             url += f"ingredients={ingredientsStr[:-1]}"  # Remove the trailing comma
 
-        url += f"&number={input.number}&ranking={input.ranking}&ignorePantry={input.ignorePantry}&addRecipeInformation=true&addRecipeInstructions=true"
+        url += f"&number={input.number}&ranking={input.ranking}&ignorePantry={input.ignorePantry}&information&addRecipeInformation=true&addRecipeInstructions=true"
 
         api_key = "378732fc25a64dd28799e4bafd67abca"
 
