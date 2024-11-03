@@ -1,10 +1,11 @@
 import uuid
 from src.database.modle import Ingredient
 from motor.motor_asyncio import AsyncIOMotorClient
-from fastapi import Request
+from fastapi import Request, HTTPException
 from src.spoonacular.model import Recipe
 from pydantic import BaseModel
 from bson import ObjectId
+from fastapi.encoders import jsonable_encoder
 
 def serialize_objectid(obj):
     if isinstance(obj, ObjectId):
@@ -133,8 +134,19 @@ class RecipeRepo():
         await motor.get_collection('Recipes').delete_one({"recipe_id": recipe_id})
 
 
+
     @staticmethod
     async def retrieve_recipe_by_id(recipe_id: str, request: Request):
         motor: AsyncIOMotorClient = request.app.state.recipe_motor
-        _recipe = await motor.get_collection('Recipes').find_one({"recipe_id": recipe_id})
-        return _recipe
+        try:
+            id = ObjectId(recipe_id)
+        except Exception:
+            raise HTTPException(status_code=400, detail="Invalid recipe ID format")
+        
+        _recipe = await motor.get_collection('Recipes').find_one({"_id": id})
+        if not _recipe:
+            raise HTTPException(status_code=404, detail="Recipe not found")
+        
+        _recipe['_id'] = str(_recipe['_id'])  # Convert ObjectId to string
+        serialized_recipe = jsonable_encoder(_recipe)  # Ensure all fields are JSON serializable
+        return serialized_recipe
