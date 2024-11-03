@@ -20,3 +20,8 @@ async def get_recipes_endpoint(input: GetRecipesInput) -> Recipes:
 async def get_all_recipes(request: Request):
     recipes = await RecipeRepo.retrieve_recipes(request=request)
     return JSONResponse(content=recipes)
+
+@router.get("/recipe/{recipe_id}")
+async def get_recipe_by_id(recipe_id: str, request: Request):
+    recipe = await RecipeRepo.retrieve_recipe_by_id(recipe_id, request=request)
+    return JSONResponse(content=recipe)
