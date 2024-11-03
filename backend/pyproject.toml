@@ -15,6 +15,7 @@ bs4 = "^0.0.2"
 pydantic-settings = "^2.6.1"
 requests = "^2.32.3"
 motor = "^3.6.0"
+fastapi-cors = "^0.0.6"
 
 
 [build-system]
