@@ -5,40 +5,44 @@ import os
 import httpx
 
 # internal
-from src.spoonacular.model import GetIngredientsInput, Recipes
+from src.spoonacular.model import GetRecipesInput, Recipes, Recipe
 
 
-async def get_recipes(input: GetIngredientsInput) -> Recipes:
-    url = "https://api.spoonacular.com/recipes/findByIngredients?"
+from typing import List
 
-    if len(input.ingredients) > 0:
-        url += "ingredients="
+async def get_recipes(input: GetRecipesInput) -> Recipes:
+    recipes: List[Recipe] = []  # Define recipes as a list of Recipe models
 
-        for ingredient in input.ingredients:
-            url += f"{ingredient},"
-        url = url[:-1]
+    # Adjust the loop to limit API requests as needed
+    for i in range(10):
+        url: str = "https://api.spoonacular.com/recipes/findByIngredients?"
 
-    url += f"&number={input.number}&ranking={input.ranking}&ignorePantry={input.ignorePantry}"
+        ingredientsStr = ""
 
+        # Loop through the current batch of ingredients (up to 20)
+        for ingredient in input.ingredients[i*20:(i+1)*20]:
+            ingredientsStr += f"{ingredient['ingredient_name']},"
 
-    api_key: str = "57006aca24614a3e9fc6d1b4a7ee673a"
+        if ingredientsStr:
+            url += f"ingredients={ingredientsStr[:-1]}"  # Remove the trailing comma
 
-    print(f"API Key: {api_key}")
+        url += f"&number={input.number}&ranking={input.ranking}&ignorePantry={input.ignorePantry}&addRecipeInformation=true&addRecipeInstructions=true"
 
-    if api_key is not None:
-        url += f"&apiKey={api_key}"
+        api_key = "378732fc25a64dd28799e4bafd67abca"
 
-    print(f"Fetching recipes from Spoonacular API: {url}")
+        if api_key:
+            url += f"&apiKey={api_key}"
 
-    async with httpx.AsyncClient() as client:
-        response = await client.get(url)
+        print(f"Fetching recipes from Spoonacular API: {url}")
 
-        print(response)
-        
-        if response.status_code == 200:
+        async with httpx.AsyncClient(timeout=20.0) as client:
+            response = await client.get(url)
             data = response.json()
-            return Recipes(recipes=data)
-        else:
-            error_data = response.json()
-            print("Error from Spoonacular API:", error_data)
-            raise ValueError("Failed to fetch recipes from Spoonacular API")
+            print("Data from Spoonacular API*****************************:", data)
+
+            # Convert each recipe in data to a Recipe model
+            for recipe_data in data:
+                recipe = Recipe(**recipe_data)  # Unpack recipe dictionary into Recipe model
+                recipes.append(recipe)
+
+    return Recipes(recipes=recipes)  # Return Recipes model containing list of Recipe objects

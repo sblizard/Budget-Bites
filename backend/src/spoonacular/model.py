@@ -1,54 +1,57 @@
 # builtin
+from typing import Any, Optional
 
 # external
 from pydantic import BaseModel
 
 # internal
 
-
 class MissedIngredient(BaseModel):
-    aisle: str
-    amount: float
-    id: int
-    image: str
-    meta: list[str]
-    name: str
-    original: str
-    originalName: str
-    unit: str
-    unitLong: str
-    unitShort: str
+    aisle: Optional[str] = None
+    amount: Optional[float] = None
+    id: Optional[int] = None
+    image: Optional[str] = None
+    meta: Optional[list[str]] = None
+    name: Optional[str] = None
+    original: Optional[str] = None
+    originalName: Optional[str] = None
+    unit: Optional[str] = None
+    unitLong: Optional[str] = None
+    unitShort: Optional[str] = None
 
 class UsedIngredients(BaseModel):
-    aisle: str
-    amount: float
-    id: int
-    image: str
-    meta: list[str]
-    name: str
-    original: str
-    originalName: str
-    unit: str
-    unitLong: str
-    unitShort: str
+    aisle: Optional[str] = None
+    amount: Optional[float] = None
+    id: Optional[int] = None
+    image: Optional[str] = None
+    meta: Optional[list[str]] = None
+    name: Optional[str] = None
+    original: Optional[str] = None
+    originalName: Optional[str] = None
+    unit: Optional[str] = None
+    unitLong: Optional[str] = None
+    unitShort: Optional[str] = None
 
 class Recipe(BaseModel):
-    id: int
-    image: str
-    imageType: str
-    likes: int
-    missedIngredientCount: int
-    missedIngredients: list[MissedIngredient]
-    title: str
-    unusedIngredients: list[str]
-    usedIngredientCount: int
-    usedIngredients: list[UsedIngredients]
+    id: Optional[int] = None
+    image: Optional[str] = None
+    imageType: Optional[str] = None
+    likes: Optional[int] = None
+    missedIngredientCount: Optional[int] = None
+    missedIngredients: Optional[list[MissedIngredient]] = None
+    title: Optional[str] = None
+    unusedIngredients: Optional[list[dict[str, Any]]] = None
+    usedIngredientCount: Optional[int] = None
+    usedIngredients: Optional[list[UsedIngredients]] = None
+    summary: Optional[str] = None
+    # TODO: add steps 
+
 
 class Recipes(BaseModel):
-    recipes: list[Recipe]
+    recipes: Optional[list[Recipe]] = None
 
-class GetIngredientsInput(BaseModel):
-    ingredients: list[str]
-    number: int
-    ranking: int
-    ignorePantry: bool
+class GetRecipesInput(BaseModel):
+    ingredients: Optional[list[dict[str, Any]]] = None
+    number: Optional[int] = None
+    ranking: Optional[int] = None
+    ignorePantry: Optional[bool] = None
